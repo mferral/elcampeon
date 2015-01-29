@@ -1,0 +1,528 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(http://weloveiconfonts.com/api/?family=brandico);
+/* brandico */
+
+[class*="brandico-"]:before {
+    font-family: 'brandico', sans-serif;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+#menu {
+    border-bottom: solid 2px #d62400;
+}
+.logoSmall {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    width: auto;
+}
+.orbit-caption {
+    height: 100%;
+}
+.bannerMargin {
+    margin-top: 24%;
+}
+.bannerCont1 {
+    height: 145px;
+}
+.marcador {
+    font-size: 5.5em;
+    text-align: center;
+    border: solid 3px white;
+    font-weight: 700;
+    line-height: 1.3em;
+    height: 100%;
+}
+.equipos {
+    height: 100%;
+    font-size: 2.5em;
+    display: inline-block;
+    font-weight: 800;
+    line-height: 1.4em;
+}
+.info {
+    font-weight: 700;
+    background: white;
+    text-align: center;
+    color: #d62400;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+.verticalCentered {
+    display: table;
+    overflow: hidden;
+}
+.verticalCentered>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+h3 {
+    font-weight: 700;
+}
+strong {
+    line-height: 1.4em;
+}
+.row {
+    max-width: 1170px;
+}
+.menuList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: .7em;
+    color: #d62400;
+}
+.menuList li:hover {
+    color: #9C1A00;
+}
+.menuList li {
+    font-weight: 700;
+    display: inline;
+    margin-right: 1.7em;
+}
+.lupa {
+    background: #d62400;
+    color: white;
+    height: 47px;
+    width: 47px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: center;
+    padding-top: 1em;
+}
+.captionTercio {
+    bottom: 72px;
+    height: 72px;
+    background: rgba(0, 0, 0, .5);
+    padding-top: 10px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: -72px;
+    overflow: hidden;
+    -webkit-transition: height 0.6s, margin-bottom 0.6s, bottom 0.6s;
+    -moz-transition: height 0.6s, margin-bottom 0.6s, bottom 0.6s;
+    transition: height 0.6s, margin-bottom 0.6s, bottom 0.6s;
+}
+.tercio:hover .captionTercio {
+    margin-bottom: -90px;
+    bottom: 90px;
+    height: 90px;
+}
+.entrevista {
+    background: #c1120d;
+    color: white;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.cultura {
+    background: green;
+    color: white;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.deporte {
+    background: #fb760f;
+    color: white;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.correcaminos {
+    background: #ec2500;
+    color: white;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.salud {
+    background: #0078c8;
+    color: white;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.por {
+    font-size: .8em;
+    margin-top: 15px;
+    line-height: 2em;
+}
+.porPoster {
+    line-height: 2.5em;
+}
+.br {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.marcador2 {
+    font-size: 2.5em;
+    text-align: center;
+    border: solid 3px black;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+.marcador3 {
+    font-size: 2.5em;
+    text-align: center;
+    border: solid 3px white;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+.info5 {
+    font-weight: 700;
+    background: white;
+    text-align: center;
+    color: #d62400;
+    font-size: 1em;
+    margin-top: 10px;
+}
+.equipos2 {
+    display: inline-block;
+    font-weight: 800;
+    line-height: 1em;
+    font-size: 1.2em;
+}
+.info2 {
+    font-weight: 700;
+    background: black;
+    text-align: center;
+    color: white;
+    padding: 4px;
+    margin-top: 10px;
+}
+.info4 {
+    font-weight: 700;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 0px;
+    border: solid 2px black;
+}
+.info3 {
+    font-weight: 700;
+    border: solid 2px black;
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 0px;
+}
+.info6 {
+    font-weight: 700;
+    border: solid 2px black;
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+.stripes {
+    height: 15px;
+    background: url(../img/stripes.jpg);
+    background-size: 15%;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #d62400;
+    margin: 1em 0;
+    padding: 0;
+}
+.paddingCenter {
+    padding: 10px;
+}
+.coments {
+    color: #d62400;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+.instagramFeed {
+    background: #d62400;
+    font-weight: 700;
+    margin-top: 30px;
+    color: #d62400;
+}
+.instaText {
+    background: white;
+    padding: 0 4px;
+}
+.instaPics {
+    color: grey;
+}
+.btnComents {
+    width: 49.5%;
+    font-size: .9em;
+    margin-bottom: 2px;
+}
+.masBtn {
+    background: #d62400;
+    padding: 15px;
+    border: solid 2px #d62400;
+    color: white;
+}
+.masBtnActive {
+    color: #d62400;
+    background: white;
+    padding: 15px;
+    border: solid 2px #d62400;
+}
+.comentsBox {
+    color: white;
+    padding: 15px;
+    background: #d62400;
+    /* Old browsers */
+    
+    background: -moz-linear-gradient(top, #d62400 0%, #e88230 100%);
+    /* FF3.6+ */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d62400), color-stop(100%, #e88230));
+    /* Chrome,Safari4+ */
+    
+    background: -webkit-linear-gradient(top, #d62400 0%, #e88230 100%);
+    /* Chrome10+,Safari5.1+ */
+    
+    background: -o-linear-gradient(top, #d62400 0%, #e88230 100%);
+    /* Opera 11.10+ */
+    
+    background: -ms-linear-gradient(top, #d62400 0%, #e88230 100%);
+    /* IE10+ */
+    
+    background: linear-gradient(to bottom, #d62400 0%, #e88230 100%);
+    /* W3C */
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d62400', endColorstr='#e88230', GradientType=0);
+    /* IE6-9 */
+}
+.smallText p {
+    line-height: 1.2em;
+    font-size: .8em;
+    margin-bottom: .2em;
+}
+.comentH {
+    min-height: 85px;
+}
+.pagination {
+    position: relative;
+    margin-right: 0;
+    margin-left: 0;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.icon {
+    line-height: 1.5em;
+    position: absolute;
+    top: 6px;
+    right: 20px;
+}
+.bannerIcon {
+    top: -45px;
+    right: 15px;
+}
+.iconImgEntry {
+    top: 6px;
+    right: 5px;
+}
+.comments {
+    min-width: 30px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    padding: 0px 3px;
+    border: 2px solid white;
+}
+.comments:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid rgba(0, 0, 0, .71);
+    border-right: 10px solid transparent;
+    position: absolute;
+    bottom: -8px;
+    left: 10px;
+    border-bottom-left-radius: 3px;
+}
+.comments:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 15px solid white;
+    border-right: 15px solid transparent;
+    position: absolute;
+    bottom: -13px;
+    left: 8px;
+    border-bottom-left-radius: 3px;
+}
+.socialIco {
+    width: 100%;
+    min-height: 67px;
+    border: 1px solid #d62400;
+    text-align: center;
+    color: #d62400;
+    font-size: 2em;
+    padding: 16px;
+    -webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    transition: background .5s;
+}
+.socIco {
+    fill: #d62400;
+    -webkit-transition: fill .5s;
+    -moz-transition: fill .5s;
+    transition: fill .5s;
+}
+i {
+    text-align: justify;
+    line-height: 1.3em;
+}
+p {
+    text-align: justify;
+}
+.coment p {
+    line-height: 1em;
+}
+.socialIco:hover {
+    background: #d62400;
+}
+.socialIco:hover .socIco {
+    fill: white;
+}
+.poster {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.poster img {
+    width: 100%;
+    height: auto;
+}
+.caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding-top: 17%;
+    background: rgba(255, 120, 0, .5);
+}
+.poster h3 {
+    color: white;
+    line-height: .6em;
+}
+.encabezado {
+    border-bottom: 2px solid #d62400;
+    font-size: 2em;
+}
+.encabezadoRow {
+    height: 45px;
+    padding-left: 15px;
+}
+.encabezado h3 {
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 10px;
+    position: relative;
+    left: 10px;
+    bottom: 11px;
+}
+.colorXX {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+}
+.correcaminosColor {
+    background: #d62400;
+}
+// Small screens
+@media only screen {}
+/* Define mobile styles */
+
+@media only screen and (max-width: 40em) {
+    .marcador {
+        font-size: 2em;
+    }
+    .equipos {
+        font-size: 1em;
+    }
+    .info {
+        font-size: 1em;
+    }
+    .bannerCont1 {
+        height: 60px;
+    }
+    .bannerMargin {
+        margin-top: 10%;
+    }
+    .noPaddingQuery {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #menu {
+        height: 45px;
+    }
+    .menuSmall {
+        position: absolute;
+        left: 5px;
+        top: 2px;
+    }
+    .lupa2 {
+        position: absolute;
+        right: 15px;
+        top: 25%;
+    }
+    .loginho {
+        width: 250px;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .comments {
+        display: none;
+    }
+}
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) {}
+/* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .menuList li {
+        font-size: .8em;
+        margin-right: .5em;
+    }
+    .marcador {
+        font-size: 4em;
+    }
+    .equipos {
+        font-size: 1.9em;
+    }
+    .bannerCont1 {
+        height: 110px;
+    }
+    .captionTercio {
+        font-size: 14px;
+    }
+    .inicioBtn {
+        width: 200px;
+        padding-top: 8px;
+    }
+}
+/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 64.063em) {}
+/* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {}
+/* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) {}
+/* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {}
+/* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+// XXLarge screens
+@media only screen and (min-width: 120.063em) {}
+/* min-width 1921px, xxlarge screens */

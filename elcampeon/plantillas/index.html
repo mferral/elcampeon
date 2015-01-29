@@ -1,0 +1,311 @@
+{% extends 'template.html' %}
+{% load thumbnail %}
+{% block banners %}
+<div class="row">
+
+  <div class="large-12 columns noPaddingQuery">
+    <ul class="" data-orbit>
+	{% for banner in banners %}
+      <li>      	
+		{% thumbnail banner.imagen "1140x450" quality=75 crop="center" as im %}
+              			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% endthumbnail %}    
+        <div class="orbit-caption ">
+          <div class="small-7 small-centered columns " >
+            <div class="bannerMargin">
+              <div class="bannerCont1">
+              	{% if banner.resultas.all %}
+                <div class="marcador verticalCentered small-6 medium-6 large-5 columns">
+                  <div>
+  					{% for res in banner.resultas.all %}
+  						{{res.resultado1}} - {{res.resultado2}} 
+  					{% endfor %}
+                  </div>
+                </div>              		
+                <div class="equipos small-6 medium-6 large-7 columns">
+	  				{% for res in banner.resultas.all %}  						
+			            <div>{{res.equipo1}}</div>
+			            <div>VS</div>
+			            <div>{{res.equipo2}}</div>  						
+	  				{% endfor %}                	  				
+                </div>
+                {% else %}
+				<div class="equipos small-12 medium-12 large-12 columns">  
+				<div class="text-center">
+				{{banner.titulo}}	
+				</div>              				
+				</div>
+                {% endif %}
+
+              </div>
+              <div class="info small-12  columns">
+                {{banner.subtitulo}}
+              </div>
+              <div class="editor small-12 columns">
+                <div class="row">
+                  Por {{banner.quienescribe}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+	    	
+	{% endfor %}    
+    </ul>
+  </div>
+</div>
+
+<!--tercios-->
+<div id="tercios" class="row hide-for-small br">
+	<div class="large-12 columns br">
+		<div class="row">
+			{% for tercio in tercios %}
+				<div class="small-4 columns tercio">
+					<div class="icon">
+						<div class="comments">
+							0
+						</div>
+					</div>
+					{% thumbnail tercio.imagen "360x214" quality=75 crop="center" as im %}
+              			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+          			{% endthumbnail %}    
+					<div class="captionTercio large-12 columns">
+						{{tercio.titulo}}
+					</div>
+				</div>							
+			{% endfor %}			
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+<!--main-->
+{% block contenido %}
+	<!--entrys-->
+	<div class="medium-12 large-8 columns ">
+		{% if estelar %}
+		<!--entry DEPORTE LOCAL-->
+		<div class="small-12 columns">
+			<div class="icon iconImgEntry">
+				<div class="comments">
+					0
+				</div>
+			</div>
+			<div class="row">
+				{% thumbnail estelar.imagen "750x437" crop="center" as im %}
+	              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	          	{% endthumbnail %}  
+				<h3>{{estelar.titulo}}</h3>
+				<div class="por">por <b>{{estelar.quienescribe}}</b> {{estelar.fecha|date:"DATETIME_FORMAT"}} <span class="depLoc">{{estelar.seccion}}</span></div>
+				<div class="br"> 
+					<p>{{ estelar.contenido|truncatewords_html:60 }}</p>					
+					<span>
+						<a class="entryMasBtn">Leer Mas</a>
+					</span>					
+				</div>
+				<hr>
+			</div>
+		</div>			
+		{% endif %}
+
+		{% if entrevista %}
+		<!--entry ENTREVISTA-->
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="row">
+					<div class="large-6 small-5 medium-5 columns">
+						{% thumbnail entrevista.imagen "360x360" quality=75 crop="center" as im %}
+			              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			          	{% endthumbnail %}  
+					</div>
+					<div class="large-6 small-7 medium-7 columns">
+						<h3 class="text-center"><div>{{entrevista.titulo}}</h3>
+						<div class="info3 small-12 columns">
+							{{entrevista.subtitulo}}
+						</div>
+						<div class="por large-12 columns">por <b>{{entrevista.quienescribe}}</b> {{ entrevista.fecha|date:"DATETIME_FORMAT" }} <span class="{{entrevista.seccion|lower}}">{{entrevista.seccion}}</span></div>
+						<div class="br hide-for-small">
+							<i>{{ entrevista.contenido|truncatewords_html:50 }}</i>
+						</div>
+						<span>
+							<a class="entryMasBtn">Leer Mas</a>
+						</span>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>			
+		{% endif %}
+		
+		{% if correcaminos %}
+		<!--entry CORRECAMINOS-->
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="row">
+					<div class="small-5 large-6 medium-5 columns">
+						{% thumbnail correcaminos.imagen "360x360" quality=75 crop="center" as im %}
+			              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			          	{% endthumbnail %}  
+					</div>
+					<div class="small-7 large-6 medium-7 columns">
+						<h3 class="text-center"><div>{{correcaminos.titulo}}</h3>
+						<div class="info3 small-12 columns">
+							{{correcaminos.subtitulo}}
+						</div>						
+						<div class="por">por <b>{{correcaminos.quienescribe}}</b> {{ correcaminos.fecha|date:"DATETIME_FORMAT" }} <span class="{{correcaminos.seccion|lower}}">{{correcaminos.seccion}}</span></div>
+						<div class="br hide-for-small">
+							<p>{{ correcaminos.contenido|truncatewords_html:50 }}</p>
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>			
+		{% endif %}
+
+		{% if salud %}
+		<!--entry SALUD-->
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="row">
+					<div class="large-6 small-5 medium-5 columns">
+						{% thumbnail salud.imagen "360x360" quality=75 crop="center" as im %}
+			              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			          	{% endthumbnail %}  
+					</div>
+					<div class="large-6 small-7 medium-7 columns">
+						<div class="row">
+							<h4 class="text-center">{{salud.titulo}}</h4>
+							<div class="small-8 small-centered columns">
+								{% if salud.subseccion|add:"0" > 0 %}
+								<div class="info4 small-4  columns">
+									TIP
+								</div>
+								{% if salud.subseccion|add:"0" == 1 %}	
+								<div class="info3 small-8 medium-7 columns">
+									SALUD
+								</div>									
+								{% else %}
+								<div class="info3 small-8 medium-7 columns">
+									EJERCICIO
+								</div>																	
+								{% endif %}																
+								{% endif %}								
+							</div>
+							<div class="por large-12 columns">por <b>{{salud.quienescribe}}</b> {{ salud.fecha|date:"DATETIME_FORMAT" }} <span class="{{salud.seccion|lower}}">{{salud.seccion}}</span></div>
+							<div class="br large-12 columns hide-for-small">
+								<p>{{ salud.contenido|truncatewords_html:50 }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>			
+		{% endif %}
+		<!--entry CULTURA-->
+		{% if cultura %}				
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="row">
+					<div class="small-5 medium-6 columns">
+						{% thumbnail cultura.imagen "360x360" quality=75 crop="center" as im %}
+			              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			          	{% endthumbnail %}  
+					</div>
+					<div class="small-7 medium-6 columns">
+						<div class="small-12 columns" >
+							<div class="row">  								
+								<div class="marcador2 verticalCentered small-12 columns">
+									<div>
+										{{cultura.titulo}}
+									</div>
+								</div>
+								<div class="info2 small-12 columns">
+									{{cultura.subtitulo}}
+								</div>
+							</div>
+						</div>
+						<div class="por large-12 columns">por <b>{{cultura.quienescribe}}</b> {{ cultura.fecha|date:"DATETIME_FORMAT" }} <span class="{{cultura.seccion|lower}}">{{cultura.seccion}}</span></div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+		{% endif %}	
+		<!--entry POSTER-->
+		{% if poster %}	
+		<div class="small-12 columns br">
+			<div class="row">
+				<div class="poster">
+					<div class="caption">
+						<div class="small-centered small-8 medium-6 columns">  
+							<div class="small-12 columns text-center"><h3>{{poster.seccion}}</h3></div>         
+							<div class="marcador3 verticalCentered small-12 columns">
+								<div>
+									{{poster.titulo|truncatewords_html:5}}
+								</div>
+							</div>
+							<div class="info5 small-12 columns">
+								{{poster.subtitulo}}
+							</div>
+							<div class="por porPoster br">por <b>{{poster.quienescribe}}</b> {{ poster.fecha|date:"DATETIME_FORMAT" }} </div>
+						</div>
+					</div>
+					{% thumbnail poster.imagen "750x437" quality=75 crop="center" as im %}
+			              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+			        {% endthumbnail %}  
+				</div>
+			</div>
+		</div>		
+		{% endif %}		
+		<!--entry 6/6-->
+		<div class="row">
+			<div class="small-12 columns">
+				<input type="hidden" name="pagina" id="pagina" value="1">
+				<input type="hidden" name="total_paginas" id="total_paginas" value="{{total_paginas}}">
+				<div id="noticias_principal">
+				</div>				
+				<button type="button" class="large-12" id="btn_mas_noticias" onclick="mas_noticias();">Mas Noticias</button>
+			</div>
+		</div>
+
+
+		<!--PAGINATION-->
+		<div class="small-12 columns">
+			<div class="row pagination-centered">
+				<ul class="pagination">
+					<li class="arrow unavailable"><a href="">&laquo;</a></li>
+					<li class="current"><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li class="unavailable"><a href="">&hellip;</a></li>
+					<li><a href="">12</a></li>
+					<li><a href="">13</a></li>
+					<li class="arrow"><a href="">&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}			
+
+
+
+{% block script %}
+<script>
+	function mas_noticias(){
+		$.get("noticias_principal/"+$("#pagina").val(),function(data){
+			$("#noticias_principal").append(data);
+			$("#pagina").val(parseInt($("#pagina").val())+1);		
+			if($("#total_paginas").val()<$("#pagina").val()){
+				$("#btn_mas_noticias").remove();
+			}	
+		});
+		
+	}
+	mas_noticias();
+</script>
+{% endblock %}

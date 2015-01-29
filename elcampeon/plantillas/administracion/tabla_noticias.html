@@ -1,0 +1,25 @@
+{% load thumbnail %}
+<table class="table">
+  <tbody>
+  {% for noticia in noticias %}    
+    <tr>
+      <td>                        
+        <div>
+          {% thumbnail noticia.imagen "100x100" crop="center" as im %}
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+          {% endthumbnail %}        
+          <small><span class="muted">{{ noticia.fecha|date:"SHORT_DATE_FORMAT" }}</span></small> {{noticia.titulo}}
+        </div>
+                          
+        <div>               
+          <small class="label">{{noticia.seccion}}</small>             
+          <div class="pull-right">
+            <a class="btn" href="javascript:getNota('{{noticia.id}}');">Editar</a>                          
+            <!--<a class="btn" href="#">Eliminar</a> -->                             
+          </div>                                                                                    
+        </div>                          
+      </td>                                                 
+    </tr>   
+  {% endfor %}
+  </tbody>
+</table>             

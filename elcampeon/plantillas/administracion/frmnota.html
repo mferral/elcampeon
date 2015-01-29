@@ -1,0 +1,141 @@
+<form action="/noticia_save/" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %} 
+  <input type="hidden" name="id" value="{{id}}">
+  <fieldset>  
+  <strong>Nueva Noticia</strong>             
+  <div class="control-group">   
+    {{formulario.titulo}}                                
+  </div>
+  <div class="control-group">   
+    {{formulario.subtitulo}}                              
+  </div>
+  <div class="control-group">                    
+    {{formulario.contenido}}
+  </div>
+  <div class="control-group">   
+    {{formulario.quienescribe}}                                
+  </div>                      
+  <label for="">Imagen</label>
+    {{formulario.imagen}}
+  <label for="">Tipo de Noticia</label>
+    {{formulario.tiponoticia}}    
+  <label for="">Seccion</label>
+    {{formulario.seccion}}
+  <div id="otras_secciones"></div>   
+  <div id="pregunta_resultados">
+    <label for="">La publicacion contiene resultados deportivos?</label>
+    <select name="pregunta" id="pregunta">
+      <option value="0">No</option>
+      <option value="1" selected>Si</option>                      
+    </select>  
+  </div>
+  <div id="tips">
+    <label for="">Es algun Tip?</label>
+    <select name="subseccion" id="subseccion_id">
+      <option value="0">No</option>
+      <option value="1">Tip de Nutricion</option>                      
+      <option value="2">Tip de Ejerc&iacute;cio</option>                      
+    </select>  
+  </div>                  
+  <div id="resultados">  
+    <label for="">Escriba los resultados</label>           
+    <div class="row-fluid">                        
+      <div class="span10">
+        <input type="text" name="equipo1" id="equipo1" value="{% for res in noticia.resultas.all %}{{res.equipo1}}{% endfor %}" class="span12" placeholder="Equipo 1">
+      </div>
+      <div class="span2">
+        <input type="number" name="resultado1" value="{% for res in noticia.resultas.all %}{{res.resultado1}}{% endfor %}" id="resultado1" class="span12" placeholder="Marcador">
+      </div>
+    </div>                  
+    <div class="row-fluid">
+      <div class="span10">
+        <input type="text" name="equipo2" id="equipo2" value="{% for res in noticia.resultas.all %}{{res.equipo2}}{% endfor %}" class="span12" placeholder="Equipo 2">
+      </div>
+      <div class="span2">
+        <input type="number" name="resultado2" id="resultado2" value="{% for res in noticia.resultas.all %}{{res.resultado2}}{% endfor %}" class="span12" placeholder="Marcador">
+      </div>
+    </div>
+  
+  </div>              
+  <p>
+    <input type="submit" class="btn btn-primary btn-large" value="Publicar">
+    <input type="button" class="btn btn-primary btn-large" value="Nuevo" id="btnnuevo">
+  </p>
+  </fieldset>
+</form>
+
+<script>
+    $("#pregunta_resultados").hide();
+    $("#resultados").hide();
+    $("#tips").hide();
+
+    function seccion(){
+        var seccion=$("#id_seccion").val();
+        if($("#id_seccion").val()==""){
+          $("#otras_secciones").html("");
+        }else{
+          {% if id %}
+            $("#otras_secciones").load("/otras_secciones/"+seccion+"/?id="+{{id}});
+          {% else %}
+            $("#otras_secciones").load("/otras_secciones/"+seccion);
+          {% endif %}
+          if(seccion==1){
+            $("#pregunta_resultados").show();
+          }else{
+            $("#pregunta_resultados").hide();
+          }
+          if(seccion==4){
+            $("#tips").show();
+          }else{
+            $("#tips").hide();
+          }
+          $("#pregunta").val("0");
+          $("#subseccion_id").val("0");
+          $("#resultados").hide();
+        }      
+    }
+
+    {% if id %}
+      seccion();
+      {% if noticia.tieneresultados %}
+        $("#pregunta").val("1");
+      {% else %}
+        $("#pregunta").val("0");
+      {% endif %}      
+      {% for res in noticia.resultas.all %}
+        $("#resultados").show();     
+      {% endfor %}  
+      $("#subseccion_id").val("{{noticia.subseccion}}");
+      $("#id_imagen").removeAttr("required");
+    {% endif %}    
+
+    $("#id_seccion").change(function(){
+      seccion();
+    });
+
+    function tieneresultados(){
+      var pregunta=$("#pregunta").val();
+      if(pregunta==1){
+        $("#resultados").show();
+        limpiar_resultados();
+      }else{
+        $("#resultados").hide();        
+      }      
+    }    
+
+    $("#pregunta").change(function(){
+      tieneresultados();
+    });  
+
+
+    function limpiar_resultados(){
+      $("#resultado1").val("");
+      $("#resultado2").val("");
+      $("#equipo1").val("");
+      $("#equipo2").val("");
+    }  
+
+    $("#btnnuevo").click(function(){
+      $("#formulario").load("/frmnota/");
+    });
+</script>

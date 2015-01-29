@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>El Campeon</title>
+      <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <!-- Le styles -->
+      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+      <link href="{{STATIC_URL}}admin/css/bootplus.css" rel="stylesheet">
+      <style>
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .hero-unit {
+          padding: 20px;
+      }
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      </style>
+      <link href="{{STATIC_URL}}admin/css/bootplus-responsive.css" rel="stylesheet">
+   </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">El Campeon</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Noticias</a></li>
+              <li><a href="#">Publicidad</a></li>
+              <li><a href="/acceso/">Cerrar Sesion</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <div class="span5">
+          <div class="hero-unit" id="formulario">          
+          </div>
+
+        </div><!--/span-->
+
+        <div class="span7">
+               <div class="hero-unit">  
+                  <div class="span6">
+                    <caption>Mis Noticias</caption>
+                  </div>
+                  <div class="span6 text-right">
+                      <input type="text" id="txtbuscar" placeholder="Buscar Noticias" >
+                  </div>                                             
+                  <div class="" id="tabla_noticias"></div> 
+                  <hr>
+                 
+               </div>        
+         </div>        
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; monoestereo 2014</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{STATIC_URL}}admin/js/jquery.js"></script>
+    <script src="{{STATIC_URL}}admin/js/bootstrap.min.js"></script>
+    <script>
+    $("#tabla_noticias").load("/tabla_noticias");
+
+    $('#txtbuscar').keypress(function(e) {
+      if (e.which == '13') {
+        $("#tabla_noticias").load("/tabla_noticias/"+$("#txtbuscar").val());           
+      }
+    });
+
+    $("#formulario").load("/frmnota/");
+
+    function getNota(id){
+      $("#formulario").load("/frmnota/?id="+id);
+    }    
+    </script>
+  </body>
+</html>

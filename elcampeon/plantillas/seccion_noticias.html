@@ -1,0 +1,31 @@
+{% load thumbnail %}        
+{% for noticia in noticias %}
+
+        <div class="row">
+            <div class="small-12 columns">
+
+                <div class="row">                	
+                    <div class="large-6 small-5 medium-5 columns">
+                        {% thumbnail noticia.imagen "360x360" quality=75 crop="center"  as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                        {% endthumbnail %}  
+                    </div>
+                    <div class="large-6 small-7 medium-7 columns">
+                        <h3 class="text-center">{{noticia.titulo}}</h3>
+                        <div class="info3 small-12 columns">
+                            {{noticia.subtitulo}}
+                        </div>
+                        <div class="por">por <b>{{noticia.quienescribe}}</b> {{ noticia.fecha|date:"DATETIME_FORMAT" }}
+                        </div>
+                        <div class="br hide-for-small">
+                            <i>{{ noticia.contenido|truncatewords_html:40 }}</i>
+                        </div>
+                        <span>
+							<a class="entryMasBtn" href="/entrada/{{noticia.id}}">Leer Mas...</a>
+						</span>
+                    </div>                    
+                </div>                
+                <hr>
+            </div>
+        </div>
+{% endfor %}

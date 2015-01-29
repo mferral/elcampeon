@@ -1,0 +1,10 @@
+<label for="">En que otras secciones aparece?</label>      
+<div class="row-fluid">
+{% for seccion in secciones %}
+	<div class="span3">
+    	<label class="checkbox">
+        	<input type="checkbox" name="mas_secciones" {%if seccion.check%}checked{%endif%} id="mas_secciones" value="{{seccion.seccion.id}}"> {{seccion.seccion.descripcion}}
+        </label>       
+    </div>                                                                                 	
+{% endfor %}                                                               
+</div>
