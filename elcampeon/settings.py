@@ -96,7 +96,7 @@ USE_TZ = True
 
 STATIC_URL = 'http://periodicoelcampeon.com/static/' 
 
-#STATIC_ROOT = ''
+STATIC_ROOT = '/home/monoestereo/webapps/elcampeonstatic/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
