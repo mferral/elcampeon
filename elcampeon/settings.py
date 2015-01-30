@@ -70,8 +70,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'elcampeon',
-        'USER':'root',
-        'PASSWORD': 'admin',
+        'USER':'elcampeon',
+        'PASSWORD': 'elcampeon',
         'HOST': '',
         'PORT': '3306',
     }
@@ -94,7 +94,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'http://periodicoelcampeon.com/static/' 
 
 #STATIC_ROOT = ''
 
