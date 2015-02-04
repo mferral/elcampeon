@@ -13,7 +13,7 @@ NOTICIAS_PAGINA=4
 def home(request):
 	secciones=Seccion.objects.all()	
 	tercios=Noticia.objects.all().order_by('-fecha')[:3]
-	banners=Noticia.objects.filter(tieneresultados=True).filter(tiponoticia__id=3).order_by('-fecha')[:3]
+	banners=Noticia.objects.filter(tiponoticia__id=3).order_by('-fecha')[:3]
 	estelar=Noticia.objects.filter(tiponoticia__id=2).order_by('-fecha').first()
 	entrevista=Noticia.objects.filter(seccion__id=5).order_by('-fecha').first()
 	correcaminos=Noticia.objects.filter(seccion__id=2).order_by('-fecha').first()
