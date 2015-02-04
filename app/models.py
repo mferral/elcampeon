@@ -47,7 +47,7 @@ class Noticia(models.Model):
 	subseccion=models.CharField(max_length=50,blank=True,null=True)	
 	seccion=models.ForeignKey(Seccion,null=True)	
 	tiponoticia=models.ForeignKey(TipoNoticia,null=True)	
-	resultas = models.ManyToManyField(Resulta, null=True)
+	resultas = models.ManyToManyField(Resulta, null=True,blank=True)
 	def __unicode__(self):
 		return self.titulo
 
