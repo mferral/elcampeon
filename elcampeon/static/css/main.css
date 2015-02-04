@@ -442,6 +442,15 @@ p {
     color: white;
 }
 
+button {
+    background:#d62400 ;
+}
+
+button:hover,
+button:focus {
+    background:#BD2000 ;
+}
+
 // Small screens
 @media only screen {}
 /* Define mobile styles */
