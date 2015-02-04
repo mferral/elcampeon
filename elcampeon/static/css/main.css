@@ -433,8 +433,12 @@ p {
     background: #d62400;
 }
 
-
 .titleLink{
+    color: white;
+}
+
+.titleLink:hover,
+.titleLink:focus{
     color: white;
 }
 
