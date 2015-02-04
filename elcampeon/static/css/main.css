@@ -432,25 +432,18 @@ p {
 .correcaminosColor {
     background: #d62400;
 }
-
-.titleLink{
+.titleLink {
     color: white;
 }
-
-.titleLink:hover,
-.titleLink:focus{
+.titleLink:hover, .titleLink:focus {
     color: white;
 }
-
 button {
-    background:#d62400 ;
+    background: #d62400;
 }
-
-button:hover,
-button:focus {
-    background:#BD2000 ;
+button:hover, button:focus {
+    background: #BD2000;
 }
-
 // Small screens
 @media only screen {}
 /* Define mobile styles */
