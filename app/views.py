@@ -143,8 +143,8 @@ def noticia_save(request):
         	if len(request.POST.getlist('mas_secciones')) > 0:
         		for seccion in request.POST.getlist('mas_secciones'):      			
         			NoticiaSeccion.objects.create(noticia_id=noticia.pk,seccion_id=seccion)
-        	pregunta=int(request.POST['pregunta'])	
-        	if pregunta==1:
+        	pregunta=request.POST['pregunta']
+        	if pregunta=="1":
         		equipo1=request.POST['equipo1']        		
         		resultado1=request.POST['resultado1']
         		equipo2=request.POST['equipo2']	
