@@ -96,7 +96,7 @@
             <div class="br">
                 <p>{{ estelar.contenido|truncatewords_html:60 }}</p>
                 <span>
-						<a class="entryMasBtn">Leer Mas</a>
+						<a class="entryMasBtn" href="/estelar/{{salud.id}}">Leer Mas...</a>
 					</span>
             </div>
             <hr>
@@ -112,7 +112,7 @@
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 </div>
                 <div class="large-6 small-7 medium-7 columns">
-                    <h3 class="text-center"><div>{{entrevista.titulo}}</h3>
+                    <h3 class="text-center">{{entrevista.titulo}}</h3>
                     <div class="info3 small-12 columns">
                         {{entrevista.subtitulo}}
                     </div>
@@ -122,7 +122,7 @@
                         <i>{{ entrevista.contenido|truncatewords_html:50 }}</i>
                     </div>
                     <span>
-							<a class="entryMasBtn">Leer Mas</a>
+							<a class="entryMasBtn" href="/entrada/{{entrevista.id}}">Leer Mas...</a>
 						</span>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 </div>
                 <div class="small-7 large-6 medium-7 columns">
-                    <h3 class="text-center"><div>{{correcaminos.titulo}}</h3>
+                    <h3 class="text-center">{{correcaminos.titulo}}</h3>
                     <div class="info3 small-12 columns">
                         {{correcaminos.subtitulo}}
                     </div>
@@ -147,6 +147,7 @@
                     </div>
                     <div class="br hide-for-small">
                         <p>{{ correcaminos.contenido|truncatewords_html:50 }}</p>
+                        <a class="entryMasBtn" href="/entrada/{{salud.id}}">Leer Mas...</a>
                     </div>
                 </div>
             </div>
@@ -184,6 +185,7 @@
                         </div>
                         <div class="br large-12 columns hide-for-small">
                             <p>{{ salud.contenido|truncatewords_html:50 }}</p>
+                            <a class="entryMasBtn" href="/entrada/{{salud.id}}">Leer Mas...</a>
                         </div>
                     </div>
                 </div>
