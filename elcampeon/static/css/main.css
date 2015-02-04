@@ -432,6 +432,12 @@ p {
 .correcaminosColor {
     background: #d62400;
 }
+
+
+.titleLink{
+    color: white;
+}
+
 // Small screens
 @media only screen {}
 /* Define mobile styles */
