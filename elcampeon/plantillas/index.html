@@ -102,7 +102,7 @@
 				<div class="br"> 
 					<p>{{ estelar.contenido|truncatewords_html:60 }}</p>					
 					<span>
-						<a class="entryMasBtn">Leer Mas</a>
+						<a class="entryMasBtn" href="/entrada/{{estelar.id}}">Leer Mas...</a>
 					</span>					
 				</div>
 				<hr>
@@ -130,7 +130,7 @@
 							<i>{{ entrevista.contenido|truncatewords_html:50 }}</i>
 						</div>
 						<span>
-							<a class="entryMasBtn">Leer Mas</a>
+							<a class="entryMasBtn" href="/entrada/{{entrevista.id}}">Leer Mas...</a>
 						</span>
 					</div>
 				</div>
@@ -158,6 +158,9 @@
 						<div class="br hide-for-small">
 							<p>{{ correcaminos.contenido|truncatewords_html:50 }}</p>
 						</div>
+						<span>
+						<a class="entryMasBtn" href="/entrada/{{noticia.id}}">Leer Mas...</a>
+						</span>
 					</div>
 				</div>
 				<hr>
@@ -198,6 +201,9 @@
 							<div class="br large-12 columns hide-for-small">
 								<p>{{ salud.contenido|truncatewords_html:50 }}</p>
 							</div>
+							<span>
+								<a class="entryMasBtn" href="/entrada/{{salud.id}}">Leer Mas...</a>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -305,7 +311,6 @@
 				$("#btn_mas_noticias").remove();
 			}	
 		});
-		
 	}
 	mas_noticias();
 </script>
