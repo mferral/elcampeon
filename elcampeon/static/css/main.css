@@ -8,6 +8,18 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
+a {
+    color: #d62400;
+}
+
+a:hover,
+a:visited,
+a:active,
+a:focus {
+    color: #BD2000;
+}
+
 #menu {
     border-bottom: solid 2px #d62400;
 }
@@ -449,16 +461,6 @@ button:hover, button:focus {
     height: 485px;
 }
 
-a {
-    color: #d62400;
-}
-
-a:hover,
-a:visited,
-a:active,
-a:focus {
-    color: #BD2000;
-}
 
 // Small screens
 @media only screen {}
