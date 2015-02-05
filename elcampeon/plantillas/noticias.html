@@ -1,22 +1,22 @@
 {% load thumbnail %}
 <div class="row">
-					{% for noticia in todas %}										
-					<div class="small-6 columns h450">
-						{% thumbnail noticia.imagen "360x210" quality=75 crop="center"  as im %}
-	              			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-	          			{% endthumbnail %}  
-						<div class="br">
-							<strong>{{noticia.titulo|title|truncatewords_html:20}}</strong>							
-						</div>
-						
-						<div class="por br">por <b>{{noticia.quienescribe}}.</b> {{ noticia.fecha|date:"DATETIME_FORMAT" }} <span class="{{noticia.seccion|lower}} br">{{noticia.seccion}}</span></div>
-						<div class="small-12 columns ">
-							<div class="row hide-for-small">
-								<p>{{ noticia.contenido|truncatewords_html:20 }}</p>
-								<a class="entryMasBtn" href="/entrada/{{noticia.id}}">Leer Mas...</a>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
+    {% for noticia in todas %}
+    <div class="small-6 columns heightNoticia">
+        {% thumbnail noticia.imagen "360x210" quality=75 crop="center" as im %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
+        <div class="br">
+            <strong>{{noticia.titulo|title|truncatewords_html:20}}</strong>
+        </div>
 
+        <div class="por br">por <b>{{noticia.quienescribe}}.</b> {{ noticia.fecha|date:"DATETIME_FORMAT" }} <span class="{{noticia.seccion|lower}} br">{{noticia.seccion}}</span>
+        </div>
+        <div class="small-12 columns ">
+            <div class="row hide-for-small">
+                <p>{{ noticia.contenido|truncatewords_html:20 }}</p>
+                <a class="entryMasBtn" href="/entrada/{{noticia.id}}">Leer Mas...</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+    {% endfor %}
 </div>
