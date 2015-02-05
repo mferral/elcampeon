@@ -57,11 +57,7 @@
         <div class="row">
             {% for tercio in tercios %}
             <div class="small-4 columns tercio">
-                <div class="icon">
-                    <div class="comments">
-                        0
-                    </div>
-                </div>
+                
                 {% thumbnail tercio.imagen "360x214" quality=75 crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 <div class="captionTercio large-12 columns">
@@ -82,11 +78,7 @@
     {% if estelar %}
     <!--entry DEPORTE LOCAL-->
     <div class="small-12 columns">
-        <div class="icon iconImgEntry">
-            <div class="comments">
-                0
-            </div>
-        </div>
+      
         <div class="row">
             {% thumbnail estelar.imagen "750x437" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
