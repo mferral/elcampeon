@@ -1,7 +1,7 @@
 {% load thumbnail %}
 <div class="row">
 					{% for noticia in todas %}										
-					<div class="small-6 columns">
+					<div class="small-6 columns h450">
 						{% thumbnail noticia.imagen "360x210" quality=75 crop="center"  as im %}
 	              			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
 	          			{% endthumbnail %}  

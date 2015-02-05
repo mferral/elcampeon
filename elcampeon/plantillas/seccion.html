@@ -27,7 +27,7 @@
 				<div class="br"> 
 					<p>{{ principal.contenido|truncatewords_html:60 }}</p>					
 					<span>
-						<a class="entryMasBtn">Leer Mas</a>
+						<a class="entryMasBtn" href="/entrada/{{principal.id}}">Leer Mas...</a>
 					</span>					
 				</div>
 				<hr>
@@ -42,31 +42,6 @@
         <div id="seccion_noticias"></div>
         <button type="button" class="large-12" id="btn_mas_noticias" onclick="mas_noticias();">Mas Noticias</button>
 
-        <!--PAGINATION-->
-        <!-- <div class="small-12 columns">
-            <div class="row pagination-centered">
-                <ul class="pagination">
-                    <li class="arrow unavailable"><a href="">&laquo;</a>
-                    </li>
-                    <li class="current"><a href="">1</a>
-                    </li>
-                    <li><a href="">2</a>
-                    </li>
-                    <li><a href="">3</a>
-                    </li>
-                    <li><a href="">4</a>
-                    </li>
-                    <li class="unavailable"><a href="">&hellip;</a>
-                    </li>
-                    <li><a href="">12</a>
-                    </li>
-                    <li><a href="">13</a>
-                    </li>
-                    <li class="arrow"><a href="">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
     </div>
 {% endblock %}
 

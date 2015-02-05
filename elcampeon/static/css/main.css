@@ -444,6 +444,11 @@ button {
 button:hover, button:focus {
     background: #BD2000;
 }
+
+.h450 {
+    height: 450px;
+}
+
 // Small screens
 @media only screen {}
 /* Define mobile styles */
