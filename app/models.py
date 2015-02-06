@@ -25,6 +25,7 @@ class Publicidad(models.Model):
 	imagen = models.ImageField(upload_to='publicidad')        
 	fecha=models.DateTimeField(auto_now_add=True,editable=False)  
 	piedefoto=models.CharField(max_length=250)
+	url=models.CharField(max_length=250)
 	def __unicode__(self):
 		return self.piedefoto 
 

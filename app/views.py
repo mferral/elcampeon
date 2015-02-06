@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render,redirect
-from app.models import Usuario,Noticia,Seccion,NoticiaSeccion,Resulta
+from app.models import Usuario,Noticia,Seccion,NoticiaSeccion,Resulta,Publicidad
 from django.http import HttpResponse
-from app.forms import NoticiaForm
+from app.forms import NoticiaForm,PublicidadForm
 import datetime
 from django.db.models import Q
 from django.core.paginator import Paginator
 
 # Create your views here.
-NOTICIAS_PAGINA=4
+NOTICIAS_PAGINA=20
 
 def home(request):
 	secciones=Seccion.objects.all()	
@@ -20,12 +20,14 @@ def home(request):
 	salud=Noticia.objects.filter(seccion__id=4).order_by('-fecha').first()
 	cultura=Noticia.objects.filter(seccion__id=3).order_by('-fecha').first()
 	poster=Noticia.objects.all().order_by('?').first()
+	publicidad=Publicidad.objects.all().order_by('?').first()
 	noticias_todas=Noticia.objects.all().order_by('-fecha')
 	paginator = Paginator(noticias_todas, NOTICIAS_PAGINA)	
 	total_paginas=paginator.num_pages
 	return render(request,'index.html',{'secciones':secciones,'tercios':tercios,'total_paginas':total_paginas,\
 										'estelar':estelar,'entrevista':entrevista,'salud':salud,\
-										'correcaminos':correcaminos,'cultura':cultura,'banners':banners,'poster':poster})
+										'correcaminos':correcaminos,'cultura':cultura,'banners':banners,'poster':poster,\
+										'publicidad':publicidad})
 
 def login(request):
     request.session.clear()
@@ -42,6 +44,31 @@ def frmnota(request):
 	else:
 		formulario=NoticiaForm()
 	return render(request,'administracion/frmnota.html',{'formulario':formulario,'id':id_,'noticia':noticia})	
+
+def frmpublicidad(request):
+	id_=None
+	publicidad=None
+	if request.GET:
+		id_=request.GET['id']
+		publicidad=Publicidad.objects.get(pk=id_)
+		formulario=PublicidadForm(instance=publicidad)
+	else:
+		formulario=PublicidadForm()
+	return render(request,'administracion/frmpublicidad.html',{'formulario':formulario,'id':id_,'publicidad':publicidad})	
+
+def publicidad_delete(request):
+	id_=None	
+	if request.GET:
+		id_=request.GET['id']
+		publicidad=Publicidad.objects.get(pk=id_).delete()		
+	return HttpResponse('')
+
+def noticia_delete(request):
+	id_=None	
+	if request.GET:
+		id_=request.GET['id']
+		noticia=Noticia.objects.get(pk=id_).delete()		
+	return HttpResponse('')	
 
 def noticias_principal(request,idpagina):
 	noticias_todas=Noticia.objects.all().order_by('-fecha')
@@ -69,7 +96,10 @@ def seccion(request,idseccion):
 
 def noticias(request):		
 	secciones=Seccion.objects.all()
-	return render(request,'administracion/template.html',{'secciones':secciones})
+	return render(request,'administracion/noticias.html',{'secciones':secciones})
+
+def publicidad(request):			
+	return render(request,'administracion/publicidad.html')
 
 def entrada(request,identrada):		
 	secciones=Seccion.objects.all()
@@ -103,6 +133,10 @@ def tabla_noticias(request,palabra):
 	else:
 		noticias=Noticia.objects.filter(Q(fecha__gte=fecha_inicial) & Q(fecha__lte=fecha_final))
 	return render(request,'administracion/tabla_noticias.html',{'noticias':noticias})
+
+def tabla_publicidad(request):
+	publicidad=Publicidad.objects.all()
+	return render(request,'administracion/tabla_publicidad.html',{'publicidad':publicidad})
 
 def validar(request):
     request.session.clear()
@@ -158,3 +192,16 @@ def noticia_save(request):
         #    for seccion in request.POST.getlist('mas_secciones'): 
         #    	print  seccion                  
     return redirect('/noticias/')    
+
+def publicidad_save(request):
+    if request.POST:        
+        id_=request.POST['id']
+        if id_!= 'None':
+        	id_=int(request.POST['id'])
+        	publicidad=Publicidad.objects.get(pk=id_)
+        	formulario = PublicidadForm(request.POST,request.FILES,instance=publicidad)
+        else:
+        	formulario = PublicidadForm(request.POST,request.FILES)
+        if formulario.is_valid():
+        	publicidad=formulario.save()          	        
+    return redirect('/publicidad/')        

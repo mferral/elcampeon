@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django import forms
 from django.forms import Textarea
-from app.models import Noticia
+from app.models import Noticia,Publicidad
 
 class NoticiaForm(forms.ModelForm):
     class Meta:
@@ -15,4 +15,13 @@ class NoticiaForm(forms.ModelForm):
             "tiponoticia":forms.Select(attrs={'required':'True'}),
             "imagen":forms.FileInput(attrs={'required':'True'}),
         } 
+
+class PublicidadForm(forms.ModelForm):
+    class Meta:
+        model = Publicidad
+        widgets={
+            "piedefoto":forms.TextInput(attrs={'required':'True','placeholder':'Titulo','class':'span12'}),
+            "url":forms.TextInput(attrs={'required':'True','placeholder':'URL','class':'span12'}),
+            "imagen":forms.FileInput(attrs={'required':'True'}),
+        }
     

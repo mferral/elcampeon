@@ -1,0 +1,29 @@
+<form action="/publicidad_save/" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %} 
+  <input type="hidden" name="id" value="{{id}}">
+  <fieldset>  
+  <strong>Nueva Publicidad</strong>             
+  <div class="control-group">   
+    {{formulario.piedefoto}}                                
+  </div>
+  <div class="control-group">   
+    {{formulario.url}}                              
+  </div>                      
+  <label for="">Imagen</label>
+    {{formulario.imagen}}             
+  <p>
+    <input type="submit" class="btn btn-primary btn-large" value="Publicar">
+    <input type="button" class="btn btn-primary btn-large" value="Nuevo" id="btnnuevo">
+  </p>
+  </fieldset>
+</form>
+
+<script>
+    $("#btnnuevo").click(function(){
+      $("#formulario").load("/frmpublicidad/");
+    });
+
+    {% if id %}      
+      $("#id_imagen").removeAttr("required");
+    {% endif %}     
+</script>

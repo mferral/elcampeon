@@ -1,21 +1,20 @@
 {% load thumbnail %}
 <table class="table">
   <tbody>
-  {% for noticia in noticias %}    
+  {% for publi in publicidad %}    
     <tr>
       <td>                        
         <div>
-          {% thumbnail noticia.imagen "100x100" crop="center" as im %}
+          {% thumbnail publi.imagen "100x100" crop="center" as im %}
               <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
           {% endthumbnail %}        
-          <small><span class="muted">{{ noticia.fecha|date:"SHORT_DATE_FORMAT" }}</span></small> {{noticia.titulo}}
+          <small><span class="muted">{{ publi.fecha|date:"SHORT_DATE_FORMAT" }}</span></small> <a href="{{publi.url}}"  target="_blank">{{publi.piedefoto}}</a>
         </div>
                           
-        <div>               
-          <small class="label">{{noticia.seccion}}</small>             
+        <div>                                      
           <div class="pull-right">
-            <a class="btn" href="javascript:eliminaNoticia('{{noticia.id}}');">Eliminar</a>   
-            <a class="btn" href="javascript:getNota('{{noticia.id}}');">Editar</a>                                     
+            <a class="btn" href="javascript:eliminaPublicidad('{{publi.id}}');">Eliminar</a>
+            <a class="btn" href="javascript:getPublicidad('{{publi.id}}');">Editar</a>                          
             <!--<a class="btn" href="#">Eliminar</a> -->                             
           </div>                                                                                    
         </div>                          

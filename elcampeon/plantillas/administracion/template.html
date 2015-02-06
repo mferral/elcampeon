@@ -48,8 +48,8 @@
               
             </p>
             <ul class="nav">
-              <li class="active"><a href="#">Noticias</a></li>
-              <li><a href="#">Publicidad</a></li>
+              <li id="item_noticias" class="active"><a href="/noticias/">Noticias</a></li>
+              <li id="item_publicidad"><a href="/publicidad/">Publicidad</a></li>
               <li><a href="/acceso/">Cerrar Sesion</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -59,26 +59,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-
-        <div class="span5">
-          <div class="hero-unit" id="formulario">          
-          </div>
-
-        </div><!--/span-->
-
-        <div class="span7">
-               <div class="hero-unit">  
-                  <div class="span6">
-                    <caption>Mis Noticias</caption>
-                  </div>
-                  <div class="span6 text-right">
-                      <input type="text" id="txtbuscar" placeholder="Buscar Noticias" >
-                  </div>                                             
-                  <div class="" id="tabla_noticias"></div> 
-                  <hr>
-                 
-               </div>        
-         </div>        
+        {% block contenido %}{% endblock %}     
       </div><!--/row-->
 
       <hr>
@@ -95,20 +76,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{STATIC_URL}}admin/js/jquery.js"></script>
     <script src="{{STATIC_URL}}admin/js/bootstrap.min.js"></script>
-    <script>
-    $("#tabla_noticias").load("/tabla_noticias");
-
-    $('#txtbuscar').keypress(function(e) {
-      if (e.which == '13') {
-        $("#tabla_noticias").load("/tabla_noticias/"+$("#txtbuscar").val());           
-      }
-    });
-
-    $("#formulario").load("/frmnota/");
-
-    function getNota(id){
-      $("#formulario").load("/frmnota/?id="+id);
-    }    
-    </script>
+    {% block script %}{% endblock %} 
   </body>
 </html>

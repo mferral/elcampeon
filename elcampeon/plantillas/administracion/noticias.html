@@ -1,0 +1,49 @@
+{% extends 'administracion/template.html' %} {% load thumbnail %}
+<!-- Noticias -->
+{% block contenido %}
+<div class="span5">
+	<div class="hero-unit" id="formulario">          
+	</div>
+</div><!--/span-->
+
+<div class="span7">
+	<div class="hero-unit">  
+        <div class="span6">
+        	<caption>Mis Noticias</caption>
+        </div>
+        <div class="span6 text-right">
+        	<input type="text" id="txtbuscar" placeholder="Buscar Noticias" >
+        </div>                                             
+        <div class="" id="tabla_noticias"></div> 
+		<hr>                 
+    </div>        
+</div>   
+{% endblock %}  
+
+{% block script %}
+<script>
+    $("#tabla_noticias").load("/tabla_noticias");
+
+    $('#txtbuscar').keypress(function(e) {
+      if (e.which == '13') {
+        $("#tabla_noticias").load("/tabla_noticias/"+$("#txtbuscar").val());           
+      }
+    });
+
+    $("#formulario").load("/frmnota/");
+
+    function getNota(id){
+      $("#formulario").load("/frmnota/?id="+id);
+    }   
+
+    function eliminaNoticia(id){
+        $.get("/noticia_delete/?id="+id,function(){
+            $("#tabla_noticias").load("/tabla_noticias");
+        });
+
+    }        
+
+    $("#item_publicidad").removeClass("active");
+    $("#item_noticias").addClass("active"); 
+</script>
+{% endblock %} 

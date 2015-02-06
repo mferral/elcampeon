@@ -189,21 +189,24 @@
         </div>
       </div>
     </div>
-
+    {%if publicidad %}
     <!--Publicidad-->
     <div class="row">
       <div class="large-12 noPaddingQuery columns">
         <div id="publicidad" class="large-12 cloumns br">
           <div class="large-12 columns stripes"></div>
-          <img src="http://robertoglvn.com/galerias/principal/03.jpg">
+          <a href="{{publicidad.url}}" target="_blank">
+            <img src="media/{{publicidad.imagen}}">
+          </a>
           <div class="text-center paddingCenter">  
-            <strong class="">ROBERTO GALVÁN FOTOGRAFÍA</strong>
+            <strong class="">{{publicidad.piedefoto}}</strong>
+
           </div>
           <div class="large-12 columns stripes"></div>
         </div>
       </div>
     </div>
-
+    {% endif %}
     <!--Instagram-->
     <div id="instagramFeed">
       <div class="large-12 cloumns instagramFeed">
