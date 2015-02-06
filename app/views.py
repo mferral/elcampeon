@@ -86,13 +86,14 @@ def secciones_pagina(request,idseccion,idpagina):
 
 def seccion(request,idseccion):		
 	secciones=Seccion.objects.all()
+	publicidad=Publicidad.objects.all().order_by('?').first()
 	principal=Noticia.objects.filter(seccion__id=idseccion).order_by('-fecha').first()
 	otras=NoticiaSeccion.objects.filter(seccion__id=idseccion).values_list('noticia__id')
 	noticias=Noticia.objects.exclude(pk=principal.id).filter(Q(seccion__id=idseccion) | Q(pk__in=otras)).order_by('-fecha')
 	paginator = Paginator(noticias, NOTICIAS_PAGINA)
 	total_paginas=paginator.num_pages
 	#noticias=Noticia.objects.exclude(pk=principal.id).filter(Q(seccion__id=idseccion)).order_by('-fecha')	
-	return render(request,'seccion.html',{'total_paginas':total_paginas,'secciones':secciones,'principal':principal,'idseccion':idseccion})
+	return render(request,'seccion.html',{'total_paginas':total_paginas,'secciones':secciones,'principal':principal,'idseccion':idseccion,'publicidad':publicidad})
 
 def noticias(request):		
 	secciones=Seccion.objects.all()
@@ -103,8 +104,9 @@ def publicidad(request):
 
 def entrada(request,identrada):		
 	secciones=Seccion.objects.all()
-	noticia=Noticia.objects.get(pk=identrada)
-	return render(request,'entrada.html',{'secciones':secciones,'noticia':noticia})
+	publicidad=Publicidad.objects.all().order_by('?').first()
+	noticia=Noticia.objects.get(pk=identrada)	
+	return render(request,'entrada.html',{'secciones':secciones,'noticia':noticia,'publicidad':publicidad})
 
 def otras_secciones(request,idseccion):			
 	secs=Seccion.objects.exclude(pk=idseccion)
