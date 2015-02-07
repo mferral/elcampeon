@@ -9,8 +9,10 @@
   <div class="control-group">   
     {{formulario.subtitulo}}                              
   </div>
-  <div class="control-group">                    
+  <div class="control-group"> 
+<textarea name="area2" style="width: 100%;">
     {{formulario.contenido}}
+</textarea>
   </div>
   <div class="control-group">   
     {{formulario.quienescribe}}                                
@@ -64,6 +66,10 @@
   </fieldset>
 </form>
 
+<script src="{{STATIC_URL}}js/nicEdit/nicEdit.js"></script>
+<script type="text/javascript">
+  bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 <script>
     $("#pregunta_resultados").hide();
     $("#resultados").hide();
