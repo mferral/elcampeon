@@ -471,6 +471,16 @@ button:hover, button:focus {
     color: #000;
 }
 
+.aWhite{
+    color: #fff;
+}
+.aWhite:visited,
+.aWhite:hover,
+.aWhite:focus
+ {
+    color: #fff;
+}
+
 // Small screens
 @media only screen {}
 /* Define mobile styles */

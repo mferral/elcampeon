@@ -61,7 +61,7 @@
                 {% thumbnail tercio.imagen "360x214" quality=75 crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 <div class="captionTercio large-12 columns">
-                   <a class="aBlack" href="/entrada/{{tercio.id}}">{{tercio.titulo}}</a> 
+                   <a class="aWhite" href="/entrada/{{tercio.id}}">{{tercio.titulo}}</a> 
                 </div>
             </div>
             {% endfor %}
@@ -157,7 +157,7 @@
                 </div>
                 <div class="large-6 small-7 medium-7 columns">
                     <div class="row">
-                        <h4 class="text-center">{{salud.titulo}}</h4>
+                        <h4 class="text-center"><a class="aBlack" href="/entrada/{{salud.id}}">{{salud.titulo}}</a></h4>
                         <div class="small-8 small-centered columns">
                             {% if salud.subseccion|add:"0" > 0 %}
                             <div class="info4 small-4  columns">
@@ -200,7 +200,7 @@
                         <div class="row">
                             <div class="marcador2 verticalCentered small-12 columns">
                                 <div>
-                                    {{cultura.titulo}}
+                                    <a href="/entrada/{{cultura.id}}"></a>{{cultura.titulo}}
                                 </div>
                             </div>
                             <div class="info2 small-12 columns">
@@ -224,7 +224,7 @@
                 <div class="caption">
                     <div class="small-centered small-8 medium-6 columns">
                         <div class="small-12 columns text-center">
-                            <h3>{{poster.seccion}}</h3>
+                            <h3><a href="/entrada/{{poster.id}}">{{poster.seccion}}</a></h3>
                         </div>
                         <div class="marcador3 verticalCentered small-12 columns">
                             <div>
