@@ -200,7 +200,7 @@
                         <div class="row">
                             <div class="marcador2 verticalCentered small-12 columns">
                                 <div>
-                                    <a href="/entrada/{{cultura.id}}"></a>{{cultura.titulo}}
+                                    <a href="/entrada/{{cultura.id}}">{{cultura.titulo}}</a>
                                 </div>
                             </div>
                             <div class="info2 small-12 columns">
@@ -224,11 +224,11 @@
                 <div class="caption">
                     <div class="small-centered small-8 medium-6 columns">
                         <div class="small-12 columns text-center">
-                            <h3><a href="/entrada/{{poster.id}}">{{poster.seccion}}</a></h3>
+                            <h3>{{poster.seccion}}</h3>
                         </div>
                         <div class="marcador3 verticalCentered small-12 columns">
                             <div>
-                                {{poster.titulo|truncatewords_html:5}}
+                                <a class="aWhite" href="/entrada/{{poster.id}}">{{poster.titulo|truncatewords_html:5}}</a>
                             </div>
                         </div>
                         <div class="info5 small-12 columns">
