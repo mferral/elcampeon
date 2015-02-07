@@ -461,10 +461,13 @@ button:hover, button:focus {
     height: 485px;
 }
 
-.titleNoticiaA {
+.aBlack{
     color: #000;
 }
-.titleNoticiaA:visited {
+.aBlack:visited,
+.aBlack:hover,
+.aBlack:focus
+ {
     color: #000;
 }
 

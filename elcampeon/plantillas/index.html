@@ -61,7 +61,7 @@
                 {% thumbnail tercio.imagen "360x214" quality=75 crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 <div class="captionTercio large-12 columns">
-                   <a href="/entrada/{{tercio.id}}">{{tercio.titulo}}</a> 
+                   <a class="aBlack" href="/entrada/{{tercio.id}}">{{tercio.titulo}}</a> 
                 </div>
             </div>
             {% endfor %}
@@ -82,7 +82,7 @@
         <div class="row">
             {% thumbnail estelar.imagen "750x437" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
-            <h3><a class="" href="/entrada/{{estelar.id}}">{{estelar.titulo}}</a></h3>
+            <h3><a class="aBlack" href="/entrada/{{estelar.id}}">{{estelar.titulo}}</a></h3>
             <div class="por">por <b>{{estelar.quienescribe}}</b> {{estelar.fecha|date:"DATETIME_FORMAT"}} <span class="depLoc">{{estelar.seccion}}</span>
             </div>
             <div class="br">
