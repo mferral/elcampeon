@@ -1,33 +1,55 @@
-{% extends 'template.html' %}
-{% load thumbnail %}
-{% block contenido %}
+{% extends 'template.html' %} {% load thumbnail %} {% block contenido %}
 <!--entry ENTREVISTA-->
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '909333915767717',
+        xfbml: true,
+        version: 'v2.2'
+    });
+};
 
-  <div class="small-8 columns">
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="small-8 columns">
     <div class="row">
-      <div class="large-12 columns"><br>
-        <h3 class="text-center">{{noticia.titulo}}</h3>
-        <div class="info3 small-12 columns">
-          {{noticia.subtitulo}}
+        <div class="large-12 columns">
+            <br>
+            <h3 class="text-center">{{noticia.titulo}}</h3>
+            <div class="info3 small-12 columns">
+                {{noticia.subtitulo}}
+            </div>
+            <div class="por">
+                por <b>{{noticia.quienescribe}}</b> {{ noticia.fecha|date:"DATETIME_FORMAT" }} <span class="entrevista">{{noticia.seccion}}</span>
+            </div>
+            <br>
+            <div class="row">
+                <div class="large-12 columns">
+                    <img src="/media/{{noticia.imagen}}" width="750" height="750">
+                    <br>
+                </div>
+            </div>
+            <div>
+                <br>
+                <p>
+                    {{noticia.contenido}}
+                </p>
+            </div>
         </div>
-        <div class="por">
-          por <b>{{noticia.quienescribe}}</b> {{ noticia.fecha|date:"DATETIME_FORMAT" }} <span class="entrevista">{{noticia.seccion}}</span>
-        </div>
-        <br>
-        <div class="row">
-          <div class="large-12 columns">
-            <img src="/media/{{noticia.imagen}}" width="750" height="750"><br>
-          </div>
-        </div>
-        <div>
-        <br>
-          <p>
-             {{noticia.contenido}} 
-          </p>
-        </div>
-      </div>
     </div>
     <hr>
-  </div>
- 
+    <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+    </div>
+</div>
+
 {% endblock %}
