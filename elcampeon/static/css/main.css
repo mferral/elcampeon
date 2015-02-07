@@ -461,6 +461,12 @@ button:hover, button:focus {
     height: 485px;
 }
 
+.titleNoticiaA {
+    color: #000;
+}
+.titleNoticiaA:visited {
+    color: #000;
+}
 
 // Small screens
 @media only screen {}
