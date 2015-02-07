@@ -1,3 +1,8 @@
+<script src="{{STATIC_URL}}js/nicEdit/nicEdit.js"></script>
+<script type="text/javascript">
+  bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
+
 <form action="/noticia_save/" method="POST" enctype="multipart/form-data" >
   {% csrf_token %} 
   <input type="hidden" name="id" value="{{id}}">
@@ -10,9 +15,7 @@
     {{formulario.subtitulo}}                              
   </div>
   <div class="control-group"> 
-<textarea name="area2" style="width: 100%;">
     {{formulario.contenido}}
-</textarea>
   </div>
   <div class="control-group">   
     {{formulario.quienescribe}}                                
@@ -66,10 +69,11 @@
   </fieldset>
 </form>
 
-<script src="{{STATIC_URL}}js/nicEdit/nicEdit.js"></script>
-<script type="text/javascript">
-  bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-</script>
+<textarea name="area2" style="width: 100%;">
+  Some Initial Content was in this textarea
+</textarea>
+
+
 <script>
     $("#pregunta_resultados").hide();
     $("#resultados").hide();
