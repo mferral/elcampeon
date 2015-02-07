@@ -22,7 +22,7 @@
 				{% thumbnail principal.imagen "750x437" crop="center" as im %}
 	              	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
 	          	{% endthumbnail %}  
-				<h3>{{principal.titulo}}</h3>
+				<h3><a class="aBlack" href="/entrada/{{principal.id}}">{{principal.titulo}}</a></h3>
 				<div class="por">por <b>{{principal.quienescribe}}</b> {{principal.fecha|date:"DATETIME_FORMAT"}} <span class="depLoc">{{estelar.seccion}}</span></div>
 				<div class="br"> 
 					<p>{{ principal.contenido|truncatewords_html:60 }}</p>					
