@@ -1,6 +1,5 @@
 {% load thumbnail %}        
 {% for noticia in noticias %}
-
         <div class="row">
             <div class="small-12 columns">
 
@@ -11,7 +10,7 @@
                         {% endthumbnail %}  
                     </div>
                     <div class="large-6 small-7 medium-7 columns">
-                        <h3 class="text-center">{{noticia.titulo}}</h3>
+                        <h3 class="text-center"><a class="aBlack" href="/entrada/{{noticia.id}}">{{noticia.titulo}}</a></h3>
                         <div class="info3 small-12 columns">
                             {{noticia.subtitulo}}
                         </div>
