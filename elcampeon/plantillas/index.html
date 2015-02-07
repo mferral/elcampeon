@@ -104,7 +104,7 @@
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 </div>
                 <div class="large-6 small-7 medium-7 columns">
-                    <h3 class="text-center">{{entrevista.titulo}}</h3>
+                    <h3 class="text-center"><a class="aBlack" href="/entrada/{{entrevista.id}}">{{entrevista.titulo}}</a></h3>
                     <div class="info3 small-12 columns">
                         {{entrevista.subtitulo}}
                     </div>
@@ -131,7 +131,7 @@
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"> {% endthumbnail %}
                 </div>
                 <div class="small-7 large-6 medium-7 columns">
-                    <h3 class="text-center">{{correcaminos.titulo}}</h3>
+                    <h3 class="text-center"><a href="/entrada/{{correcaminos.id}}" class="aBlack">{{correcaminos.titulo}}</a></h3>
                     <div class="info3 small-12 columns">
                         {{correcaminos.subtitulo}}
                     </div>
@@ -200,7 +200,7 @@
                         <div class="row">
                             <div class="marcador2 verticalCentered small-12 columns">
                                 <div>
-                                    <a href="/entrada/{{cultura.id}}">{{cultura.titulo}}</a>
+                                    <a class="aBlack" href="/entrada/{{cultura.id}}">{{cultura.titulo}}</a>
                                 </div>
                             </div>
                             <div class="info2 small-12 columns">
