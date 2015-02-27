@@ -27,6 +27,8 @@ urlpatterns = patterns('',
 
     url(r'^publicidad/', 'app.views.publicidad', name='publicidad'),
 
+    url(r'^nicedit/', include('nicedit.urls')),
+
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
     }),
