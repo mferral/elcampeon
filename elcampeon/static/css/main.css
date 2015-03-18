@@ -492,9 +492,6 @@ button:hover, button:focus {
     .equipos {
         font-size: 1em;
     }
-    .info {
-        font-size: 1em;
-    }
     .bannerCont1 {
         height: 60px;
     }
@@ -527,6 +524,11 @@ button:hover, button:focus {
     .comments {
         display: none;
     }
+
+    .info {
+      margin-top: 0px;
+      font-size: .8em;
+    }
 }
 /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
@@ -554,6 +556,14 @@ button:hover, button:focus {
     .inicioBtn {
         width: 200px;
         padding-top: 8px;
+    }
+
+    .bannerMargin {
+        margin-top: 7%;
+    }
+
+    .info {
+      font-size: 1em;
     }
 }
 /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
